@@ -1,1 +1,2 @@
-
+{"id":"73b3d55e","username":"Ida","password":"1Storbokstav","email":"ida@mail.se","role":"admin","orders":[{"username":"Ida","order":[{"id":1,"title":"Bryggkaffe","desc":"Bryggd på månadens bönor.","price":39,"_id":"LlCWa8SDq6uSBrvV"},{"id":1,"title":"Bryggkaffe","desc":"Bryggd på månadens bönor.","price":39,"_id":"LlCWa8SDq6uSBrvV"},{"id":1,"title":"Bryggkaffe","desc":"Bryggd på månadens bönor.","price":0,"_id":"LlCWa8SDq6uSBrvV"}],"totalsum":78,"approxTime":"1212","shipping":0,"_id":"Br9eqfaNLB18x0Qr"}],"totalsum":0,"_id":"UI1jv3rt02898WkN"}
+{"id":"b405f9ec","username":"Johanna","password":"Hejsan1","email":"johanna1@mail.se","role":"user","orders":[],"totalsum":0,"_id":"YvzdXBO1WkhdYXkk"}

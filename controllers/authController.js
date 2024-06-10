@@ -13,15 +13,15 @@ export const loginUser = async (req, res, next) => {
             error.status = 400;
             throw error;
         }
-        const { username, password } = req.body;
+        const { username, password, role } = req.body;
 
         //Hittar användare
-        const authUser = await database.findOne({ username: username, password: password });
+        const authUser = await database.findOne({ username: username, password: password});
 
         //Om/När vi hittar användare sätter vi den currentUser till authUser
         if (authUser) {
             global.currentUser = authUser;
-            res.status(200).json({ message: `Välkommen tillbaka ${username}!` })
+            res.status(200).json({ message: `Välkommen tillbaka ${username}` })
         } else {
             const error = new Error("Antingen användarnamn eller lösenord är fel")
             error.status = 400
@@ -74,12 +74,13 @@ export const registerUser = async (req, res, next) => {
             throw (error);
         }
 
-        //Skapar newUser och lägger till ID, orders samt summan
+        //Skapar newUser och lägger till ID, orders, summan samt tilldelar alla nya användaren rollen users
         const newUser = {
             id: v4().slice(0, 8),
             username: username,
             password: password,
             email: email,
+            role: 'user',
             orders: [],
             totalsum: 0
         }
