@@ -2,5 +2,9 @@
 {"id":5,"title":"Kaffe Latte","desc":"Bryggd på månadens bönor.","price":54,"_id":"ExmPe2zawVkmv4j3"}
 {"id":1,"title":"Bryggkaffe","desc":"Bryggd på månadens bönor.","price":39,"_id":"LlCWa8SDq6uSBrvV"}
 {"id":6,"title":"Cortado","desc":"Bryggd på månadens bönor.","price":39,"_id":"O7UcA0Bc3s8cm1CQ"}
+{"id":7,"title":"Kanelbulle ","desc":"beskrivning AV EN kanelbulle","price":2,"editedAt":"2024-06-10 18:56:50","_id":"UtlXzLUFMCKtU7Dy"}
 {"id":2,"title":"Caffè Doppio","desc":"Bryggd på månadens bönor.","price":49,"_id":"Zhdx6EM2jQvhPbsh"}
 {"id":4,"title":"Latte Macchiato","desc":"Bryggd på månadens bönor.","price":49,"_id":"hy7Pgu4YQYja2wck"}
+{"id":7,"title":"Kanelbulle ","desc":"beskrivning AV EN kanelbulle","price":28,"editedAt":"2024-06-10 19:00:03","_id":"UtlXzLUFMCKtU7Dy"}
+{"id":7,"title":"Kanelbulle ","desc":"beskrivning av en kanelbulle","price":39,"editedAt":"2024-06-10 19:00:22","_id":"UtlXzLUFMCKtU7Dy"}
+{"$$deleted":true,"_id":"UtlXzLUFMCKtU7Dy"}
