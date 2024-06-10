@@ -100,9 +100,9 @@ export const editproduct = async (req, res, next) => {
             throw(error);
         } 
 
-        const editedAt = new Date().toLocaleString('sv-Se', {timeZone: 'Europe/Stockholm'});
+        const modifiedAt = new Date().toLocaleString('sv-Se', {timeZone: 'Europe/Stockholm'});
 
-        const editProduct = await database.update({id: id}, {id: id, title: title, desc: desc, price: parseInt(price), editedAt: editedAt});
+        await database.update({id: id}, {id: id, title: title, desc: desc, price: parseInt(price), modifiedAt: modifiedAt});
         const updatedProduct = await database.findOne({id: id});
 
         res.status(200).send({
