@@ -1,4 +1,5 @@
 import nedb from 'nedb-promises';
+import productSchema from '../models/productSchema.js';
 
 //Skapar menu-db
 export const database = new nedb({
@@ -17,4 +18,39 @@ export const getMenu = async (req, res, next) => {
     }
 };
 
+// @desc POST Lägger till en produkt på menyn
+// @route /menu/add
+export const addproduct = async (req, res, next) => {
+    try {
+        const { title, desc, price } = req.body;
+
+        const existingProduct = await database.findOne({ title: title});
+        if (existingProduct) {
+            const error = new Error();
+            error.status = 409;
+            error.message = "Produkten finns redan";
+            throw(error);
+        }
+
+        //Hämtar alla produkter i databasen och sorterar dem efter id i fallande ordning och tar den första produkten och sparar till lastProduct
+        const lastProduct = await database.find({}).sort({id: -1}).limit(1);
+        // Skapar ett id genom att ta det sista id i databasen och lägga till 1, eller om ingen produkt finns så blir den nya produkten 1.
+        const newId = lastProduct.length > 0 ? parseInt(lastProduct[0].id, 10) + 1 : 1;
+
+        const createdAt = new Date().toLocaleString('sv-Se', {timeZone: 'Europe/Stockholm'});
+
+        const product = {
+            id: newId,
+            title: title,
+            desc: desc,
+            price: price,
+            createdAt: createdAt
+        }      
+
+        const newProduct = await database.insert(product);
+        res.status(201).json(newProduct);
+    } catch (error) {
+        next(error);
+    }
+}
 export default database

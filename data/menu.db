@@ -1,6 +1,11 @@
 {"id":3,"title":"Cappuccino","desc":"Bryggd på månadens bönor.","price":49,"_id":"0grcZV6q9r6UWXHT"}
+{"id":10,"title":"Chokladboll ","desc":"beskrivning","price":"35","createdAt":"2024-06-10 17:44:29","_id":"1A7un8GGVLCENK4K"}
+{"id":11,"title":"Rulltårta ","desc":"beskrivning","price":"65","createdAt":"2024-06-10 17:44:54","_id":"8uR821QKHn7NNYQY"}
 {"id":5,"title":"Kaffe Latte","desc":"Bryggd på månadens bönor.","price":54,"_id":"ExmPe2zawVkmv4j3"}
 {"id":1,"title":"Bryggkaffe","desc":"Bryggd på månadens bönor.","price":39,"_id":"LlCWa8SDq6uSBrvV"}
 {"id":6,"title":"Cortado","desc":"Bryggd på månadens bönor.","price":39,"_id":"O7UcA0Bc3s8cm1CQ"}
 {"id":2,"title":"Caffè Doppio","desc":"Bryggd på månadens bönor.","price":49,"_id":"Zhdx6EM2jQvhPbsh"}
+{"id":9,"title":"Tårta ","desc":"beskrivning","price":"29","createdAt":{"$$date":1718034146557},"_id":"geGxWedKDsANMfxO"}
+{"id":8,"title":"Munk ","desc":"beskrivning","price":"59","createdAt":{"$$date":1718034086510},"_id":"hI5b97flhG4OJTSP"}
 {"id":4,"title":"Latte Macchiato","desc":"Bryggd på månadens bönor.","price":49,"_id":"hy7Pgu4YQYja2wck"}
+{"id":7,"title":"Banan ","desc":"beskrivning","price":"59","createdAt":{"$$date":1718034061231},"_id":"sJ0j9fzMl8A3Ulis"}
