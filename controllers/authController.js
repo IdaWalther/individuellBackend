@@ -13,7 +13,7 @@ export const loginUser = async (req, res, next) => {
             error.status = 400;
             throw error;
         }
-        const { username, password, role } = req.body;
+        const { username, password } = req.body;
 
         //Hittar användare
         const authUser = await database.findOne({ username: username, password: password});
