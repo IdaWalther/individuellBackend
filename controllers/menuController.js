@@ -1,5 +1,4 @@
 import nedb from 'nedb-promises';
-import productSchema from '../models/productSchema.js';
 
 //Skapar menu-db
 export const database = new nedb({
@@ -43,7 +42,7 @@ export const addproduct = async (req, res, next) => {
             id: newId,
             title: title,
             desc: desc,
-            price: price,
+            price: parseInt(price),
             createdAt: createdAt
         }      
 
