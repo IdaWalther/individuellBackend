@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { getPromotions } from '../controllers/promotionController.js';
-import authenticate from '../middleware/authenticate.js';
+import { getPromotions } from '../controllers/promotionController.js'
+import authenticate from '../middleware/authenticate.js'
 
 const router = Router();
 

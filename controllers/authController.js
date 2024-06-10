@@ -21,7 +21,7 @@ export const loginUser = async (req, res, next) => {
         //Om/När vi hittar användare sätter vi den currentUser till authUser
         if (authUser) {
             global.currentUser = authUser;
-            res.status(200).json({ message: `Välkommen tillbaka ${username}` })
+            res.status(200).json({ message: `Välkommen tillbaka ${username}!` })
         } else {
             const error = new Error("Antingen användarnamn eller lösenord är fel")
             error.status = 400
