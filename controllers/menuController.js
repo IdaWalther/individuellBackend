@@ -52,4 +52,35 @@ export const addproduct = async (req, res, next) => {
         next(error);
     }
 }
+
+// @desc DELETE Tar bort en produkt från menyn
+// @route /menu/:id
+
+export const removeproduct = async (req, res, next) => {
+    try {
+        const id = parseInt(req.params.id);
+        const findProduct = await database.findOne({id: id});
+
+        console.log(findProduct)
+
+        if(!findProduct) {
+            const error = new Error();
+            error.status = 404;
+            error.message = "Produkten finns inte på menyn";
+            throw(error);
+        }
+
+        const deletedProduct = await database.remove({id: id}, {});
+
+        res.status(200).send({
+            success: true,
+            status: 200,
+            message: 'Produkten är borttagen från menyn',
+            data: { findProduct }
+        })
+    } catch (error) {
+        next(error);
+    }
+}
+
 export default database
