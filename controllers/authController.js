@@ -16,7 +16,7 @@ export const loginUser = async (req, res, next) => {
         const { username, password } = req.body;
 
         //Hittar användare
-        const authUser = await database.findOne({ username: username, password: password});
+        const authUser = await database.findOne({ username: username, password: password });
 
         //Om/När vi hittar användare sätter vi den currentUser till authUser
         if (authUser) {
