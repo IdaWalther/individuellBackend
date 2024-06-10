@@ -74,12 +74,13 @@ export const registerUser = async (req, res, next) => {
             throw (error);
         }
 
-        //Skapar newUser och lägger till ID, orders samt summan
+        //Skapar newUser och lägger till ID, orders, summan samt tilldelar alla nya användaren rollen users
         const newUser = {
             id: v4().slice(0, 8),
             username: username,
             password: password,
             email: email,
+            role: 'user',
             orders: [],
             totalsum: 0
         }
