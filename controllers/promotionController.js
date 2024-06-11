@@ -1,4 +1,5 @@
 import nedb from "nedb-promises"
+import menuDatabase from "./menuController.js"
 
 //Skapar promotions db
 const database = new nedb({ filename: "./data/promotions.db", autoload: true });
@@ -14,4 +15,32 @@ export const getPromotions = async (req, res, next) => {
     }
 }
 
+// @desc POST Lägger till en promotion
+// @route /promotions/add
+export const addPromotion = async (req, res, next) => {
+    try {
+        const {products, newPrice} = req.body;
+        const menu = await menuDatabase.find({});
+        const menuTitles = menu.map(product => product.title);
+
+        for (let product of products) {
+            if (!menuTitles.includes(product.title)) {
+                return res.status(404).json({message: "Produkten finns inte i menyn"})
+            }
+        }
+        const newPromotion = {
+                id: 'betterPrice',
+                active: true,
+                promotion: 'Bättre pris vid köp av två produkter',
+                information: `Vi tycker att ${products[0].title} passar så bra med ${products[1].title} att vi ger dig ett bättre pris om du köper båda två!`,
+                products,
+                newPrice
+        }
+
+        await database.insert(newPromotion);
+        res.status(201).json(newPromotion)
+    } catch (error) {
+        next(error);
+    }
+}
 export default database

@@ -1,6 +1,5 @@
 import promotionsDB from "../controllers/promotionController.js";
 
-
 // Hämtar alla aktiva promotions
 const activePromotions = await promotionsDB.find({ active: true });
 
@@ -38,6 +37,7 @@ const goBankrupt = (cart, shipping) => {
     shipping = 0;
     return { cart, shipping }
 }
+
 
 // Knyter en funktion till respektive promotions id i databasen {promotion.id : funktionsNamn}
 const promotions = {
