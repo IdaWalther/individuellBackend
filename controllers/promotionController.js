@@ -19,7 +19,7 @@ export const getPromotions = async (req, res, next) => {
 // @route /promotions/add
 export const addPromotion = async (req, res, next) => {
     try {
-        const {products, newPrice} = req.body;
+        const {products, discount} = req.body;
         const menu = await menuDatabase.find({});
         const menuTitles = menu.map(product => product.title);
 
@@ -34,7 +34,7 @@ export const addPromotion = async (req, res, next) => {
                 promotion: 'Bättre pris vid köp av två produkter',
                 information: `Vi tycker att ${products[0].title} passar så bra med ${products[1].title} att vi ger dig ett bättre pris om du köper båda två!`,
                 products,
-                newPrice
+                discount
         }
 
         await database.insert(newPromotion);

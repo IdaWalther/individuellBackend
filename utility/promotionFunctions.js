@@ -21,6 +21,41 @@ const thirdItemFree = async (cart, menu) => {
     }
 }
 
+const campaingPrice = async (cart, menu) => {
+    try {
+        const promotion = await promotionsDB.findOne({ id: 'betterPrice' });
+        const products = promotion.products;
+        const discount = promotion.discount;
+        const firstItem = products[0].title;
+        const secondItem = products[1].title;
+        const firstItemIndex = cart.findIndex(item => item.title === firstItem);
+        const secondItemIndex = cart.findIndex(item => item.title === secondItem);
+        const beforePromotion1 = await menu.findOne({ title: firstItem });
+        const beforePromotion2 = await menu.findOne({ title: secondItem });
+
+        if (firstItemIndex !== -1 && secondItemIndex !== -1) {
+            if (!cart[firstItemIndex].promotionApplied && !cart[secondItemIndex].promotionApplied) {
+            cart[firstItemIndex].price -= discount / 2;
+            cart[secondItemIndex].price -= discount / 2;
+            cart[firstItemIndex].promotionApplied = true;
+            cart[secondItemIndex].promotionApplied = true;
+            } 
+        } else {
+            if (firstItemIndex !== -1) {
+                cart[firstItemIndex].price = beforePromotion1.price;
+                cart[firstItemIndex].promotionApplied = false;
+            }
+            if (secondItemIndex !== -1) {
+                cart[secondItemIndex].price = beforePromotion2.price;
+                cart[secondItemIndex].promotionApplied = false;
+            }
+        }
+        return cart;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 // Gratis frakt om du är inloggad.
 export const freeUserShipping = (shipping) => {
     if (global.currentUser) {
@@ -44,6 +79,7 @@ const promotions = {
     threeForTwo: thirdItemFree,
     freeShipping: freeUserShipping,
     liquidate: goBankrupt,
+    betterPrice: campaingPrice
 }
 
 export const runPromotions = async (cart, menu, shipping) => {
