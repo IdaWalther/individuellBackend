@@ -28,6 +28,10 @@ export const addPromotion = async (req, res, next) => {
                 return res.status(404).json({message: "Produkten finns inte i menyn"})
             }
         }
+
+        if (database.findOne({id: 'betterPrice'})) {
+            await database.remove({id: 'betterPrice'});
+        }
         const newPromotion = {
                 id: 'betterPrice',
                 active: true,

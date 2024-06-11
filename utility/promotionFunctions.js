@@ -21,6 +21,7 @@ const thirdItemFree = async (cart, menu) => {
     }
 }
 
+// Kampanjpris på två produkter som man som admin kan lägga till i databasen.
 const campaingPrice = async (cart, menu) => {
     try {
         const promotion = await promotionsDB.findOne({ id: 'betterPrice' });
