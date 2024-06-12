@@ -11,11 +11,14 @@ Detta anrop används för att registrera en ny användare. Anropet skickas som e
 ### URL:
 POST: http://localhost:1337/auth/register
 ### Body:
+
+``` JSON
 {
 	"username": "Walther",
  	"password": "Walther123",
   	"email": "mail@mail.se"
 }
+```
 
 ## Logga in
 ### Beskrivning:
