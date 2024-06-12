@@ -4,8 +4,6 @@ import authenticate from '../middleware/authenticate.js'
 import promotionSchema from "../models/promotionSchema.js";
 import joiHandler from "../middleware/joiHandler.js";
 
-
-
 const router = Router();
 
 // http://localhost:1337/promotions

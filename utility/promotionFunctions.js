@@ -1,8 +1,5 @@
 import promotionsDB from "../controllers/promotionController.js";
 
-// Hämtar alla aktiva promotions
-const activePromotions = await promotionsDB.find({ active: true });
-
 // Promotion 3 för 2
 const thirdItemFree = async (cart, menu) => {
     try {
@@ -16,6 +13,7 @@ const thirdItemFree = async (cart, menu) => {
             }
         }
         return cart
+        
     } catch (error) {
         console.log(error);
     }
@@ -84,6 +82,9 @@ const promotions = {
 }
 
 export const runPromotions = async (cart, menu, shipping) => {
+    // Hämtar alla aktiva promotions från databasen.
+    const activePromotions = await promotionsDB.find({ active: true });
+    
     try {
         // "for of" loop istället för forEach då "for of" hanterar async bättre. (tydligen)
         // forEach väntar inte på att en async funktion har kört klart förens den startar nästa varv. Det gör "for of".
@@ -109,5 +110,4 @@ export const runPromotions = async (cart, menu, shipping) => {
     } catch (error) {
         console.log(error);
     }
-
 };
