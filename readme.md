@@ -13,8 +13,8 @@ POST: http://localhost:1337/auth/register
 ### Body:
 {
 	"username": "Walther",
-	"password": "Walther123",
-	"email": "mail@mail.se"
+ 	"password": "Walther123",
+  	"email": "mail@mail.se"
 }
 
 ## Logga in
@@ -25,7 +25,7 @@ POST: http://localhost:1337/auth/login
 ### Body:
 {
 	"username": "Jesper", 
-	"password": "Jesper123"
+ 	"password": "Jesper123"
 }
 
 ## Logga ut
@@ -48,7 +48,7 @@ POST: http://localhost:1337/menu/add
 ### Body:
 {
 	"title": "Morotskaka",
-	"desc": "beskrivning",
+ 	"desc": "beskrivning",
 	"price": "37"
 }
 
@@ -56,17 +56,17 @@ POST: http://localhost:1337/menu/add
 ### Beskrivning:
 Detta anrop används för att radera en produkt från databasen (meny). Anropet skickas som en DELETE-förfråan. Om anropet lyckas kommer produkten att raderas från databasen och en success kommer att returneras tillsammans med en kopia på produkten som precis raderades. 
 ### URL:
-DELETE: http://localhost:1337/menu/<id>
+DELETE: http://localhost:1337/menu/id
 ### Query Parametrar:
-<id>: Id på produkten som man vill radera, i detta fall är det siffror. 
+id: Id på produkten som man vill radera, i detta fall är det siffror. 
 
 ## Redigera en produkt på menyn
 ### Beskrivning:
 Detta anrop används för att redigera en produkt på menyn. Anropet skickas som en PUT-förfrågan med JSON-data som innehåller titel, beskrivning och pris. Om anropet lyckas kommer en success att returneras tillsammans med produkten som precis har redigerats.
 ### URL: 
-PUT: http://localhost:1337/menu/<id>
+PUT: http://localhost:1337/menu/id
 ### Quary Parametrar:
-<id>: Id på produkten som man vill redigera, i detta fallet är id en siffra
+id: Id på produkten som man vill redigera, i detta fallet är id en siffra
 ### Body:
 {
 	"title": "Tårta ",
