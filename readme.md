@@ -1,11 +1,11 @@
-# Gruppexamination Backend med Node.js
-Gruppnamn: Reschedulers  
-Medlemmar: Ida, Lisa, Kim och Magnus  
+# Dokumentation AirBeans DB API
+## Om Företaget
+### Beskrivning:
+Detta anrop används för att hämta information om företaget. Anropet skickas som ett GET-anrop. Om anropet lyckas returneras information om företaget 
 
-## Routes:
-
-### About: 
+### URL: 
 * GET: http://localhost:1337/about
+
 
 ### Auth: 
 * POST: http://localhost:1337/auth/register
