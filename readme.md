@@ -64,7 +64,7 @@ POST: http://localhost:1337/menu/add
 Detta anrop används för att radera en produkt från databasen (meny). Anropet skickas som en DELETE-förfråan. Om anropet lyckas kommer produkten att raderas från databasen och en success kommer att returneras tillsammans med en kopia på produkten som precis raderades. 
 ### URL:
 DELETE: http://localhost:1337/menu/id
-### Query Parametrar:
+### URL-Parametrar:
 id: Id på produkten som man vill radera, i detta fall är det siffror. 
 
 ## Redigera en produkt på menyn
@@ -72,7 +72,7 @@ id: Id på produkten som man vill radera, i detta fall är det siffror.
 Detta anrop används för att redigera en produkt på menyn. Anropet skickas som en PUT-förfrågan med JSON-data som innehåller titel, beskrivning och pris. Om anropet lyckas kommer en success att returneras tillsammans med produkten som precis har redigerats.
 ### URL: 
 PUT: http://localhost:1337/menu/id
-### Quary Parametrar:
+### URL-Parametrar:
 id: Id på produkten som man vill redigera, i detta fallet är id en siffra
 ### Body:
 ```JSON
@@ -88,7 +88,7 @@ id: Id på produkten som man vill redigera, i detta fallet är id en siffra
 Detta anrop används för att lägga till en produkt i varukorgen. Anropet skickas som en POST-förfrågan innehållande id på produkten man vill lägga till. Om anropet lyckas kommer en success att returneras med produkten, och den kommer att läggas till i varukorgen.
 ### URL:
 POST: http://localhost:1337/cart/id
-### Query Parametrar
+### URL-Parametrar:
 id: id på produkten man vill lägga i varukorgen, i detta fallet är id en siffra. 
 
 ## Ta bort en produkt från varukorgen
@@ -96,7 +96,7 @@ id: id på produkten man vill lägga i varukorgen, i detta fallet är id en siff
 Detta anrop används för att ta bort en produkt från varukorgen. Anropet skickas som en DELETE-förfrågan innehållande id på produkten som man vill ta bort från varukorgen. Om anropet lyckas kommer en success att returneras tillsammans med de produkter som fortfarande ligger kvar i varukorgen.
 ### URL
 DELETE: http://localhost:1337/cart/id
-### Query Parametrar
+### URL-Parametrar:
 id: Id på produkten som man vill ta bort från varukorgen, i detta fallet motsvarar id en siffra.
 
 ## Hämta varukorgen
