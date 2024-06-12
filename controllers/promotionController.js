@@ -19,9 +19,8 @@ export const getPromotions = async (req, res, next) => {
 // @route /promotions/add
 export const addPromotion = async (req, res, next) => {
     try {
-        let {products, discount, active} = req.body;
+        let {products, discount} = req.body;
         discount = parseInt(discount);
-        active = Boolean(active);
         const menu = await menuDatabase.find({});
         const menuTitles = menu.map(product => product.title);
 
@@ -36,7 +35,7 @@ export const addPromotion = async (req, res, next) => {
         }
         const newPromotion = {
                 id: 'betterPrice', 
-                active,
+                active: true,
                 promotion: 'Bättre pris vid köp av två produkter',
                 information: `Vi tycker att ${products[0].title} passar så bra med ${products[1].title} att vi ger dig ett bättre pris om du köper båda två!`,
                 products,

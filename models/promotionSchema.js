@@ -6,7 +6,6 @@ export const productPromotionSchema = Joi.object({
 
 const promotionSchema = Joi.object({
     products: Joi.array().items(productPromotionSchema).length(2).required(),
-    active: Joi.boolean().required(),
     discount: Joi.number().positive().required()
 });
 
