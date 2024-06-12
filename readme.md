@@ -133,7 +133,7 @@ GET: http://localhost:1337/promotions
 
 ## Lägg till ny promotion
 ### Beskrivning
-Detta anrop används för att lägga till en kampanj där två specifika produkter ger en rabatt. Anropet skickas som en POST-förfrågan med JSON-data där man anger vilka två produkter man vill att kampanjen ska omfamna, tillsammans med hur stor rabatt man vill ge i kronor. Vid ett lyckat anropp läggs kampanjen till i databasen och returnera datan.
+Detta anrop används för att lägga till en kampanj där två valfria produkter ger en val discount. Anropet skickas som en POST-förfrågan med JSON-data där man anger vilka två produkter man vill att kampanjen ska omfamna, tillsammans med hur stor rabatt man vill ge i kronor. Vid ett lyckat anropp läggs kampanjen till i databasen och returnera datan.
 ### URL
 http://localhost:1337/promotions/add
 ### Body
@@ -141,12 +141,12 @@ http://localhost:1337/promotions/add
 {
   "products": [
     {
-      "title": "Glasstårta"
+      "title": "Bryggkaffe"
     },
     {
-      "title": "Tårta"
+      "title": "Kanelbulle"
     }
   ],
-	"discount": "35"
+	"discount": "15"
 }
 ```
