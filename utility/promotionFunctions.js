@@ -1,9 +1,5 @@
 import promotionsDB from "../controllers/promotionController.js";
 
-
-// Hämtar alla aktiva promotions
-const activePromotions = await promotionsDB.find({ active: true });
-
 // Promotion 3 för 2
 const thirdItemFree = async (cart, menu) => {
     try {
@@ -17,6 +13,43 @@ const thirdItemFree = async (cart, menu) => {
             }
         }
         return cart
+        
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+// Kampanjpris på två produkter som man som admin kan lägga till i databasen.
+const campaingPrice = async (cart, menu) => {
+    try {
+        const promotion = await promotionsDB.findOne({ id: 'betterPrice' });
+        const products = promotion.products;
+        const discount = promotion.discount;
+        const firstItem = products[0].title;
+        const secondItem = products[1].title;
+        const firstItemIndex = cart.findIndex(item => item.title === firstItem);
+        const secondItemIndex = cart.findIndex(item => item.title === secondItem);
+        const beforePromotion1 = await menu.findOne({ title: firstItem });
+        const beforePromotion2 = await menu.findOne({ title: secondItem });
+
+        if (firstItemIndex !== -1 && secondItemIndex !== -1) {
+            if (!cart[firstItemIndex].promotionApplied && !cart[secondItemIndex].promotionApplied) {
+            cart[firstItemIndex].price -= discount / 2;
+            cart[secondItemIndex].price -= discount / 2;
+            cart[firstItemIndex].promotionApplied = true;
+            cart[secondItemIndex].promotionApplied = true;
+            } 
+        } else {
+            if (firstItemIndex !== -1) {
+                cart[firstItemIndex].price = beforePromotion1.price;
+                cart[firstItemIndex].promotionApplied = false;
+            }
+            if (secondItemIndex !== -1) {
+                cart[secondItemIndex].price = beforePromotion2.price;
+                cart[secondItemIndex].promotionApplied = false;
+            }
+        }
+        return cart;
     } catch (error) {
         console.log(error);
     }
@@ -39,14 +72,19 @@ const goBankrupt = (cart, shipping) => {
     return { cart, shipping }
 }
 
+
 // Knyter en funktion till respektive promotions id i databasen {promotion.id : funktionsNamn}
 const promotions = {
     threeForTwo: thirdItemFree,
     freeShipping: freeUserShipping,
     liquidate: goBankrupt,
+    betterPrice: campaingPrice
 }
 
 export const runPromotions = async (cart, menu, shipping) => {
+    // Hämtar alla aktiva promotions från databasen.
+    const activePromotions = await promotionsDB.find({ active: true });
+    
     try {
         // "for of" loop istället för forEach då "for of" hanterar async bättre. (tydligen)
         // forEach väntar inte på att en async funktion har kört klart förens den startar nästa varv. Det gör "for of".
@@ -72,5 +110,4 @@ export const runPromotions = async (cart, menu, shipping) => {
     } catch (error) {
         console.log(error);
     }
-
 };
