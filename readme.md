@@ -74,20 +74,25 @@ id: Id på produkten som man vill redigera, i detta fallet är id en siffra
 	"price": "56"
 }
 
-## Lägg till produkt till varukorgen
+## Lägg till produkt i varukorgen
 ### Beskrivning
+Detta anrop används för att lägga till en produkt i varukorgen. Anropet skickas som en POST-förfrågan innehållande id på produkten man vill lägga till. Om anropet lyckas kommer en success att returneras med produkten, och den kommer att läggas till i varukorgen.
 ### URL:
-POST: http://localhost:1337/cart/1
+POST: http://localhost:1337/cart/id
 ### Query Parametrar
+id: id på produkten man vill lägga i varukorgen, i detta fallet är id en siffra. 
 
 ## Ta bort en produkt från varukorgen
 ### Beskrivning
+Detta anrop används för att ta bort en produkt från varukorgen. Anropet skickas som en DELETE-förfrågan innehållande id på produkten som man vill ta bort från varukorgen. Om anropet lyckas kommer en success att returneras tillsammans med de produkter som fortfarande ligger kvar i varukorgen.
 ### URL
-DELETE: http://localhost:1337/cart/1
+DELETE: http://localhost:1337/cart/id
 ### Query Parametrar
+id: Id på produkten som man vill ta bort från varukorgen, i detta fallet motsvarar id en siffra.
 
 ## Hämta varukorgen
 ### Beskrivning
+Detta anrop används för att visa varukorgen och alla de produkter som finns i den. Anropet skickas som ett GET-anrop och om det lyckas returneras varukorgen, antingen tom eller tillsammans med alla produkter man lagt till i varukorgen.
 ### URL: 
 GET http://localhost:1337/cart 
 
