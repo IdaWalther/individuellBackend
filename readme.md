@@ -12,7 +12,7 @@ Detta anrop används för att registrera en ny användare. Anropet skickas som e
 POST: http://localhost:1337/auth/register
 ### Body:
 
-``` JavaScript
+``` JSON
 {
 	"username": "Walther",
  	"password": "Walther123",
@@ -26,10 +26,12 @@ Detta anrop används för att logga in en användare. Anropet skickas som en POS
 ### URL:
 POST: http://localhost:1337/auth/login
 ### Body:
+```JSON
 {
 	"username": "Jesper", 
  	"password": "Jesper123"
 }
+```
 
 ## Logga ut
 ### Beskrivning:
@@ -49,11 +51,13 @@ Detta anrop används för att lägga till en ny produkt till menyn. Anropet skic
 ### URL: 
 POST: http://localhost:1337/menu/add
 ### Body:
+```JSON
 {
 	"title": "Morotskaka",
  	"desc": "beskrivning",
 	"price": "37"
 }
+```
 
 ## Radera en produkt från menyn
 ### Beskrivning:
@@ -71,11 +75,13 @@ PUT: http://localhost:1337/menu/id
 ### Quary Parametrar:
 id: Id på produkten som man vill redigera, i detta fallet är id en siffra
 ### Body:
+```JSON
 {
 	"title": "Tårta ",
 	"desc": "beskrivning av en tårta",
 	"price": "56"
 }
+```
 
 ## Lägg till produkt i varukorgen
 ### Beskrivning
