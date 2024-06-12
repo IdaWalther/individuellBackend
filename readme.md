@@ -107,27 +107,46 @@ GET http://localhost:1337/cart
 
 ## Lägg en beställning
 ### Beskrivning
+Detta anrop används för att lägga en beställning på alla produkter som finns i varukorgen. Anropet skickas som en POST-förfrågan och vid en lyckad förfrågan sparas ordern och en kopia på ordern tillsammans med totalsumma och ungefärlig leveranstid returneras. 
 ### URL:
 POST: http://localhost:1337/orders
 
 ## Se orderbekräftelse
 ### Beskrvning
+Detta anrop används för att se orderstatus på en beställning man nyligen gjort. Anropet skickas som en GET-förfrågan och vid ett lyckat anrop returneras ordern tillsammans med en beräknad leveranstid och en kopia på ordern
 ### URL:
 GET: http://localhost:1337/orders/status
 
 
 ## Hämta orderhistorik
 ### Beskrivning
+Detta anrop används för att man som inloggad användare ska kunna se hela sin orderhistorik. Anropet skickas som en POST-förfrågan och vid ett lyckat anrop returneras en kopia av alla ens ordrar tillsammans med en summering av alla ordrarnas totala belopp.
 ### URL:
 POST: http://localhost:1337/orders/user
 
 
 ## Hämta alla Promotions 
 ### Beskrivning
+Detta anrop används för att man som admin ska kunna hämta alla promotions som finns tillgänliga och för att man ska kunna se status på kampanjerna. Anropet skickas som en GET-förfrågan och vid ett lyckat anrop returneras alla ordrar, en beskrivning på vad de gör och huruvida de är aktiva eller inaktiva. Om man inte är inloggad som admin kommer man ej ha tillgång till denna sida.
 ### URL:
 GET: http://localhost:1337/promotions
 
 ## Lägg till ny promotion
 ### Beskrivning
+Detta anrop används för att lägga till en kampanj där två specifika produkter ger en rabatt. Anropet skickas som en POST-förfrågan med JSON-data där man anger vilka två produkter man vill att kampanjen ska omfamna, tillsammans med hur stor rabatt man vill ge i kronor. Vid ett lyckat anropp läggs kampanjen till i databasen och returnera datan.
 ### URL
-
+http://localhost:1337/promotions/add
+### Body
+```JSON
+{
+  "products": [
+    {
+      "title": "Glasstårta"
+    },
+    {
+      "title": "Tårta"
+    }
+  ],
+	"discount": "35"
+}
+```
