@@ -12,7 +12,7 @@ Detta anrop används för att registrera en ny användare. Anropet skickas som e
 POST: http://localhost:1337/auth/register
 ### Body:
 
-``` JSON
+``` JavaScript
 {
 	"username": "Walther",
  	"password": "Walther123",
